@@ -31,7 +31,7 @@
 | delivery_area_id | integer    | null_false        | 
 | delivery_day_id  | integer    | null_false        | 
 | price            | integer    | null_false        | 
-| user_            | references | foreign_key: true | 
+| user             | references | foreign_key: true | 
 
 ## Association
 - belongs_to :user
