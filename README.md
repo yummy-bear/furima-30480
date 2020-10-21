@@ -31,7 +31,7 @@
 | delivery_area_id | integer    | null_false        | 
 | delivery_day_id  | integer    | null_false        | 
 | price            | integer    | null_false        | 
-| user_id          | references | foreign_key: true | 
+| user_            | references | foreign_key: true | 
 
 ## Association
 - belongs_to :user
@@ -42,8 +42,8 @@
 
 | Column  | Type        | Options           | 
 | ------- | ----------- | ----------------- | 
-| user_id | references  | foreign_key: true | 
-| item_id | references  | foreign_key: true |
+| user    | references  | foreign_key: true | 
+| item    | references  | foreign_key: true |
 
 ## Association
 - belongs_to :user
@@ -61,7 +61,7 @@
 | address_line | string     | null_false        | 
 | building     | string     |                   | 
 | phone_number | string     | null_false        |
-| purchase_id  | references | foreign_key: true | 
+| purchase     | references | foreign_key: true | 
 
 
 ## Association
