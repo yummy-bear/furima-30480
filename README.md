@@ -1,24 +1,68 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
 
-* Ruby version
+| Column        　　　  | Type   | Options    | 
+| -------------------- | ------ | ---------- | 
+| nickname      　　　  | string | null_false | 
+| email                | string | null_false | 
+| encrypted_password   | string | null_false | 
+| first_name           | string | null_false | 
+| last_name            | string | null_false | 
+| first_name_kana      | string | null_false | 
+| last_name_kana       | string | null_false | 
+| birth_day            | date   | null_false | 
 
-* System dependencies
+## Association
+- has_many :items
+- has_many :purchases
 
-* Configuration
 
-* Database creation
+## itemsテーブル
+  
+| Column           | Type       | Options           | 
+| ---------------- | ---------- | ----------------- | 
+| name    　　　    | string     | null_false        | 
+| introduction     | text       | null_false        |
+| status_id        | integer    | null_false        | 
+| category_id      | integer    | null_false        | 
+| delivery_fee_id  | integer    | null_false        | 
+| delivery_area_id | integer    | null_false        | 
+| delivery_day_id  | integer    | null_false        | 
+| price            | integer    | null_false        | 
+| user             | references | foreign_key: true | 
 
-* Database initialization
+## Association
+- belongs_to :user
+- has_one :purchase
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchasesテーブル
 
-* Deployment instructions
+| Column  | Type        | Options           | 
+| ------- | ----------- | ----------------- | 
+| user    | references  | foreign_key: true | 
+| item    | references  | foreign_key: true |
 
-* ...
+## Association
+- belongs_to :user
+- belongs_to :item
+- has_one :address
+
+
+## addressesテーブル
+
+| Column       | Type       | Options           | 
+| ------------ | ---------- | ----------------- | 
+| zip          | string     | null_false        | 
+| state_id     | integer    | null_false        | 
+| city         | string     | null_false        | 
+| address_line | string     | null_false        | 
+| building     | string     |                   | 
+| phone_number | string     | null_false        |
+| purchase     | references | foreign_key: true | 
+
+
+## Association
+- belongs_to :purchase
