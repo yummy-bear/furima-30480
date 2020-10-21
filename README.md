@@ -3,16 +3,16 @@
 ## usersテーブル
 
 
-| Column          | Type   | Options    | 
-| --------------- | ------ | ---------- | 
-| nickname        | string | null_false | 
-| email           | string | null_false | 
-| password        | string | null_false | 
-| first_name      | string | null_false | 
-| last_name       | string | null_false | 
-| first_name_kana | string | null_false | 
-| last_name_kana  | string | null_false | 
-| birth_day       | date   | null_false | 
+| Column        　　　  | Type   | Options    | 
+| -------------------- | ------ | ---------- | 
+| nickname      　　　  | string | null_false | 
+| email                | string | null_false | 
+| encrypted_password   | string | null_false | 
+| first_name           | string | null_false | 
+| last_name            | string | null_false | 
+| first_name_kana      | string | null_false | 
+| last_name_kana       | string | null_false | 
+| birth_day            | date   | null_false | 
 
 ## Association
 - has_many :items
@@ -29,9 +29,9 @@
 | category_id      | integer    | null_false        | 
 | delivery_fee_id  | integer    | null_false        | 
 | delivery_area_id | integer    | null_false        | 
-| delivery_day_id  | string     | null_false        | 
+| delivery_day_id  | integer    | null_false        | 
 | price            | integer    | null_false        | 
-| user             | reference  | foreign_key: true | 
+| user_id          | references | foreign_key: true | 
 
 ## Association
 - belongs_to :user
@@ -40,10 +40,10 @@
 
 ## purchasesテーブル
 
-| Column | Type       | Options           | 
-| ------ | ---------- | ----------------- | 
-| user   | reference  | foreign_key: true | 
-| item   | reference  | foreign_key: true |
+| Column  | Type        | Options           | 
+| ------- | ----------- | ----------------- | 
+| user_id | references  | foreign_key: true | 
+| item_id | references  | foreign_key: true |
 
 ## Association
 - belongs_to :user
@@ -53,15 +53,15 @@
 
 ## addressesテーブル
 
-| Column       | Type      | Options           | 
-| ------------ | --------- | ----------------- | 
-| zip          | string    | null_false        | 
-| state_id     | integer   | null_false        | 
-| city         | string    | null_false        | 
-| address_line | string    | null_false        | 
-| building     | string    |                   | 
-| phone_number | string    | null_false        |
-| purchase     | reference | foreign_key: true | 
+| Column       | Type       | Options           | 
+| ------------ | ---------- | ----------------- | 
+| zip          | string     | null_false        | 
+| state_id     | integer    | null_false        | 
+| city         | string     | null_false        | 
+| address_line | string     | null_false        | 
+| building     | string     |                   | 
+| phone_number | string     | null_false        |
+| purchase_id  | references | foreign_key: true | 
 
 
 ## Association
