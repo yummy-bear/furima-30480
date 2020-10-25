@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
 
   def show
   end
-  
+
   private
 
   def move_to_index
@@ -35,5 +35,3 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :image, :introduction, :status_id, :category_id, :delivery_fee_id, :delivery_area_id, :delivery_day_id, :price).merge(user_id: current_user.id)
   end
 end
-
-
