@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     validates :delivery_fee_id, numericality: { other_than: 1 } 
     validates :delivery_area_id, numericality: { other_than: 1 } 
     validates :delivery_day_id, numericality: { other_than: 1 } 
-    validates :price_id, format: { with: /\A[0-9]+\z/ }
+    validates :price, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9999999 }
     validates :user
   end
 

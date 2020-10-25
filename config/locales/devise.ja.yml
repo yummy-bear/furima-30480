@@ -35,11 +35,11 @@ ja:
       item:
         name: 商品名
         introduction: 商品紹介
-        status: 商品の状態
-        category: 商品のカテゴリー
-        delivery_fee: 配送料負担額
-        delivery_area: 配送元地域
-        delivery_day: 配送予定日数
+        status_id: 商品の状態
+        category_id: 商品のカテゴリー
+        delivery_fee_id: 配送料負担額
+        delivery_area_id: 配送元地域
+        delivery_day_id: 配送予定日数
         price: 価格
   
     models:
