@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update]
-  before_action :ensure_current_user, only: [:edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_current_user, only: [:edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
   def index
@@ -22,11 +22,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-
   end
 
   def update
@@ -37,8 +35,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    redirect_to root_path if @item.destroy
+  end
+
   private
-  
+
   def set_item
     @item = Item.find(params[:id])
   end
@@ -47,9 +49,7 @@ class ItemsController < ApplicationController
     redirect_to action: :index if @item.user_id != current_user.id
   end
 
-
   def item_params
     params.require(:item).permit(:name, :image, :introduction, :status_id, :category_id, :delivery_fee_id, :delivery_area_id, :delivery_day_id, :price).merge(user_id: current_user.id)
   end
-
 end
