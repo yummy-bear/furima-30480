@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   end
 
   def ensure_current_user
-    redirect_to action: :index if ＠item.user_id != current_user.id
+    redirect_to action: :index if @item.user_id != current_user.id
   end
 
 
