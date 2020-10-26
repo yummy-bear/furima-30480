@@ -44,9 +44,9 @@ class ItemsController < ApplicationController
   end
 
   def ensure_current_user
-    redirect_to action: :index if item.user_id != current_user.id
+    redirect_to action: :index if ＠item.user_id != current_user.id
   end
-  
+
 
   def item_params
     params.require(:item).permit(:name, :image, :introduction, :status_id, :category_id, :delivery_fee_id, :delivery_area_id, :delivery_day_id, :price).merge(user_id: current_user.id)
