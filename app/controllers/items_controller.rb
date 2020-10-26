@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  skip_before_action :verify_authenticity_token
 
   def index
+    @items = Item.all.order(id: 'DESC')
   end
 
   def new
@@ -15,9 +17,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
   end
 
   private
