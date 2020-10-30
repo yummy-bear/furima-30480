@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :pay]
   before_action :ensure_current_user, only: [:edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+  
   end
 
   def edit
@@ -42,6 +43,7 @@ class ItemsController < ApplicationController
       render :show
     end
   end
+
 
   private
 
