@@ -10,6 +10,11 @@ RSpec.describe OrderAddress, type: :model do
       it '情報がすべて入力されていれば保存される' do
         expect(@order_address).to be_valid
       end
+
+      it '建物名が空でも保存される' do
+        @order_address.building_name = nil
+        expect(@order_address).to be_valid
+      end
     end
 
     context '購入情報登録がうまくいかないとき' do
@@ -36,6 +41,12 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Delivery area can't be blank")
       end
+
+      it '都道府県の選択が1(--)だと保存できないこと' do
+        @order_address.delivery_area_id = 1
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Delivery area must be other than 1")
+      end 
 
       it '市町村が空だと保存できないこと' do
         @order_address.city = nil
