@@ -33,6 +33,7 @@ ja:
         birth_day: 誕生日
       
       item:
+        image: 画像
         name: 商品名
         introduction: 商品紹介
         status_id: 商品の状態
@@ -41,6 +42,16 @@ ja:
         delivery_area_id: 配送元地域
         delivery_day_id: 配送予定日数
         price: 価格
+
+  activemodel:
+    attributes:
+      order_address:
+        zip_code: 郵便番号
+        delivery_area_id: 都道府県
+        city: 市区町村
+        address_line: 番地
+        phone_number: 電話番号
+        token: 有効なクレジットカード
   
     models:
       user: ユーザ
