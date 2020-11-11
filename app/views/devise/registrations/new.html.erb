@@ -8,8 +8,10 @@
     </h1>
   </div>
 
-  <%= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post%>
-  <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post%>
+  <div class='sns-logo'>
+    <%= link_to image_tag("facebook.png", class:"image_facebook"), user_facebook_omniauth_authorize_path, method: :post%>
+    <%= link_to image_tag("google.png", class:"image_google"), user_google_oauth2_omniauth_authorize_path, method: :post%>
+  </div>
 
   <%= render "shared/error_messages", model: @user %>
 
@@ -88,9 +90,6 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
-
-
-    <% end %>
     <p class='info-text'>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
   </div>
   <div class="form-group">
