@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :orders do
       resources :addresses
     end
+    resources :comments, only: :create
   end
 end
